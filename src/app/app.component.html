@@ -1,0 +1,32 @@
+<h1>{{title}}</h1>
+
+<h2>Line chart</h2>
+<chartjs #myID1 [labels]="labels" type="bar">
+  <chartjs-data label="4" [data]="dataSet1" type="line" backgroundColor="transparent" fill="0"></chartjs-data>
+  <chartjs-data label="1" [data]="dataSet2" type="line" backgroundColor="transparent" fill="0"></chartjs-data>
+  <chartjs-data label="2" [data]="dataSet3" type="line" backgroundColor="transparent" fill="0"></chartjs-data>
+  <chartjs-data label="3" [data]="dataSet4" type="line" backgroundColor="transparent" fill="0"></chartjs-data>
+</chartjs>
+
+<h2>Bars chart</h2>
+<chartjs #myID2 [labels]="labels" type="bar">
+  <chartjs-data label="1" [data]="dataSet1" type="bar" backgroundColor="#fff584"></chartjs-data>
+  <chartjs-data label="2" [data]="dataSet2" type="bar" backgroundColor="#f59695"></chartjs-data>
+</chartjs>
+
+<h2>Mixed chart</h2>
+<chartjs #myID3 [labels]="labels" type="bar" [config]="myChartConfig">
+  <chartjs-axes>
+    <chartjs-xaxis scaleLabel="bla" id="myXAxis" [showGridLines]="false" [stacked]="true"></chartjs-xaxis>
+    <chartjs-yaxis scaleLabel="bla2" id="myYAxis" [min]="0" [max]="120" [display]="false"></chartjs-yaxis>
+    <chartjs-yaxis scaleLabel="bla3" id="myYAxis2" [min]="0" [max]="120" [stacked]="true"></chartjs-yaxis>
+  </chartjs-axes>
+
+  <chartjs-data label="4" [data]="dataSet1" type="bar" backgroundColor="#815f86" yAxisId="myYAxis2"></chartjs-data>
+  <chartjs-data label="1" [data]="dataSet2" type="bar" backgroundColor="#fff584" yAxisId="myYAxis2"></chartjs-data>
+  <chartjs-data label="2" [data]="dataSet3" type="bar" backgroundColor="#f59695" yAxisId="myYAxis2"></chartjs-data>
+    <chartjs-data *ngIf="show" label="Gewenst inkomen" [data]="dataSet5" pointRadius="0" borderColor="#815f86" backgroundColor="rgba(129,95,134,.2)" borderWidth="3" type="line" yAxisId="myYAxis"></chartjs-data>
+  <chartjs-data *ngIf="show" label="Inkomen" [data]="dataSet6" pointRadius="0" borderColor="#815f86" backgroundColor="rgba(129,95,134,.2)" borderWidth="3" type="line" yAxisId="myYAxis"></chartjs-data>
+</chartjs>
+
+<button (click)="randomizeData">Randomize Data</button>
